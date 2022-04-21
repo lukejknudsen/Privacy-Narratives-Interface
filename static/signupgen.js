@@ -75,7 +75,7 @@ Blockly.JavaScript['signup'] = function(block) {
     this.code += '\nbefore(' + previous_block_object.event_num + ','+ this.event_num +').'; // before(x,y).
   }
   if (last) {
-    return 'document.getElementById("outputCode").innerHTML =\`'  + this.code + '\`;'
+    return 'document.getElementById("outputCode").innerHTML =\`'  + this.code + '\`;\ndocument.getElementById("submit").setAttribute(\"value\", \`'  + this.code + '\`);'
   }
   return '';
 };
@@ -112,7 +112,7 @@ Blockly.JavaScript['save_contact'] = function(block) {
     this.code += '\nbefore(' + previous_block_object.event_num + ','+ this.event_num +').'; // before(x,y).
   }
   if (last) {
-    return 'document.getElementById("outputCode").innerHTML =\`'  + this.code + '\`;'
+    return 'document.getElementById("outputCode").innerHTML =\`'  + this.code + '\`;\ndocument.getElementById("submit").setAttribute(\"value\", \`'  + this.code + '\`);'
   }
   return '';
 };
@@ -149,7 +149,7 @@ Blockly.JavaScript['show_suggestion'] = function(block) {
     this.code += '\nbefore(' + previous_block_object.event_num + ','+ this.event_num +').'; // before(x,y).
   }
   if (last) {
-    return 'document.getElementById("outputCode").innerHTML =\`'  + this.code + '\`;'
+    return 'document.getElementById("outputCode").innerHTML =\`'  + this.code + '\`;\ndocument.getElementById("submit").setAttribute(\"value\", \`'  + this.code + '\`);'
   }
   return '';
 };
