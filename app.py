@@ -13,12 +13,12 @@ def index():
     #    self.first_name = request.form.get("fname")
     #    # getting input with name = lname in HTML form 
     #    last_name = request.form.get("lname") 
-        output = request.form.get("foo")
+        output = request.form.get("submit")
         f = open("output.lp", "a")
         f.write(output)
         f.close()
-        return render_template('2.html')
-    return render_template('2.html')
+        return render_template('2.html', code = output)
+    return render_template('2.html', code = output)
 
 if __name__ == '__main__':
    app.run()
