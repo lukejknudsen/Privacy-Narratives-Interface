@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ASP Generator</title>
+  <script src="blockly_compressed.js"></script>
+  <script src="blocks_compressed.js"></script>
+  <script src="javascript_compressed.js"></script>
+  <script src="en.js"></script>
+
+  <script src="signupgen.js"></script>
+  <style>
+  body {
+    background-color: #fff;
+    font-family: sans-serif;
+  }
+  h1 {
+    font-weight: normal;
+    font-size: 140%;
+  }
+  </style>
+</head>
+<body>
+  <h1>ASP Generator</h1>
+
+    <p>This simple demo demonstrates how a Blockly block can generate ASP code for use with Clingo.</p>
+
+      <p>
+        <button onclick="showCode()">Show JavaScript</button>
+        <button onclick="runCode()">Run JavaScript</button>
+      </p>
+
+      <div id="blocklyDiv" style="height: 480px; width: 600px; display: inline-block; *display: inline; zoom: 1; vertical-align: top;"></div>
+      <div id="outputCodeDiv" style="height: 480px; width: 600px; display: inline-block; *display: inline; zoom: 1; vertical-align: top;">
+        <h1>Text output</h1>
+        <textarea id="outputCode" name="outputCode" rows="25" cols="100" disabled>ASP code below:</textarea>
+      </div>
+
+      <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
+        <category name="Actions">
+          <block type="signup">
+            <field name="P1">luke</field>
+          </block>
+          <block type="save_contact">
+            <field name="P1">luke</field>
+            <field name="N">000-000-0000</field>
+          </block>
+          <block type="show_suggestion">
+            <field name="P1">luke</field>
+            <field name="P2">chinmaya</field>
+          </block>
+        </category>
+      </xml>
+
+      <xml xmlns="https://developers.google.com/blockly/xml" id="startBlocks" style="display: none">
+        <block type="signup" id="5eLMfk52bx1RtVUh[h.p" x="63" y="63">
+          <field name="P1">luke</field>
+          <next>
+            <block type="signup" id="zjt]J:wtq)+6uK(6]k-8">
+              <field name="P1">chinmaya</field>
+              <next>
+                <block type="signup" id="ax2k7gQ3Z5K)sumQMsqT">
+                  <field name="P1">chris</field>
+                  <next>
+                    <block type="save_contact" id="YW3+|KLQr=4NE]|t|Oe~">
+                      <field name="N">000-000-0000</field>
+                      <field name="P1">chinmaya</field>
+                      <next>
+                        <block type="show_suggestion" id="usH2Rg1uH-c8}LzO1F~f">
+                          <field name="P1">luke</field>
+                          <field name="P2">chinmaya</field>
+                          <next>
+                            <block type="save_contact" id="O}Lh,V{IG4fao[S73CQH">
+                              <field name="N">111-111-1111</field>
+                              <field name="P1">chris</field>
+                            </block>
+                          </next>
+                        </block>
+                      </next>
+                    </block>
+                  </next>
+                </block>
+              </next>
+            </block>
+          </next>
+        </block>
+      </xml>
+
+      <script>
+      var demoWorkspace = Blockly.inject('blocklyDiv',
+      {media: '../../media/',
+      toolbox: document.getElementById('toolbox')});
+      Blockly.Xml.domToWorkspace(document.getElementById('startBlocks'),
+                                 demoWorkspace);
+
+      function showCode() {
+        // Generate JavaScript code and display it.
+        Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+        var code = Blockly.JavaScript.workspaceToCode(demoWorkspace);
+        alert(code);
+      }
+
+      function runCode() {
+        // Generate JavaScript code and run it.
+        window.LoopTrap = 1000;
+        Blockly.JavaScript.INFINITE_LOOP_TRAP =
+        'if (--window.LoopTrap === 0) throw "Infinite loop.";\n';
+        var code = Blockly.JavaScript.workspaceToCode(demoWorkspace);
+        Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+        try {
+          eval(code);
+        } catch (e) {
+          alert(e);
+        }
+      }
+      </script>
+
+    </body>
+    </html>
