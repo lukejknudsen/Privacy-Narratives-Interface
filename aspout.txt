@@ -1,0 +1,11 @@
+pyclingo version 5.5.1 (47cb64b)
+Reading from output.lp
+Solving...
+Answer: 1
+phone_number(1) phone_number(2) phone_number(3) phone_number(4) phone_number(5) phone_number(chinmaya,2) person(luke) person(chinmaya) person(chris) strong_notholds(start,phonebook(luke,1)) strong_notholds(start,phonebook(luke,2)) strong_notholds(start,phonebook(luke,3)) strong_notholds(start,phonebook(luke,4)) strong_notholds(start,phonebook(luke,5)) strong_notholds(start,phonebook(chinmaya,1)) strong_notholds(start,phonebook(chinmaya,2)) strong_notholds(start,phonebook(chinmaya,3)) strong_notholds(start,phonebook(chinmaya,4)) strong_notholds(start,phonebook(chinmaya,5)) strong_notholds(start,phonebook(chris,1)) strong_notholds(start,phonebook(chris,2)) strong_notholds(start,phonebook(chris,3)) strong_notholds(start,phonebook(chris,4)) strong_notholds(start,phonebook(chris,5)) strong_notholds(start,user(luke)) strong_notholds(start,user(chinmaya)) strong_notholds(start,user(chris)) happens(1,action(sign_up,luke),al(luke)) happens(2,action(sign_up,chinmaya),al(chinmaya)) happens(3,action(sign_up,chris),al(chris)) happens(4,action(save_contact,chinmaya,luke),al(chinmaya)) happens(5,action(show_suggestion,luke,chinmaya),al(luke)) happens(6,action(save_contact,chris,luke),al(chris)) initiates(4,action(save_contact,chinmaya,luke),phonebook(chinmaya,luke)) initiates(6,action(save_contact,chris,luke),phonebook(chris,luke)) unintentional(luke) unintentional(chinmaya) unintentional(chris) edge(1,2) edge(2,3) edge(3,4) edge(4,5) edge(5,6) after(2,1) after(3,2) after(4,3) after(5,4) after(6,5) before(1,2) before(2,3) before(3,4) before(4,5) before(5,6) phone_number(luke,4) phone_number(chris,3) knows(luke,chinmaya) knows(chinmaya,chris) knows(chris,luke)
+SATISFIABLE
+
+Models       : 1+
+Calls        : 1
+Time         : 0.031s (Solving: 0.01s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.022s

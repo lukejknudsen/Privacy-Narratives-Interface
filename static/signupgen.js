@@ -16,7 +16,7 @@ Blockly.Blocks['save_contact'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("Save")
-        .appendField(new Blockly.FieldDropdown([["000-000-0000","000-000-0000"], ["111-111-1111","111-111-1111"], ["222-222-2222","222-222-2222"]]), "N")
+        .appendField(new Blockly.FieldDropdown([["Luke","luke"], ["Chinmaya","chinmaya"], ["Chris","chris"]]), "N")
         .appendField("to")
         .appendField(new Blockly.FieldDropdown([["Luke","luke"], ["Chinmaya","chinmaya"], ["Chris","chris"]]), "P1")
         .appendField("'s contacts");
