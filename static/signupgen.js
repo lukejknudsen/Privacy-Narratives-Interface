@@ -2,7 +2,7 @@ Blockly.Blocks['signup'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("Sign")
-        .appendField(new Blockly.FieldDropdown([["Luke","luke"], ["Chinmaya","chinmaya"], ["Chris","chris"]]), "P1")
+        .appendField(new Blockly.FieldDropdown([["Alice","alice"], ["Bob","bob"], ["Charlie","charlie"]]), "P1")
         .appendField("up for the service");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -16,9 +16,9 @@ Blockly.Blocks['save_contact'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("Save")
-        .appendField(new Blockly.FieldDropdown([["Luke","luke"], ["Chinmaya","chinmaya"], ["Chris","chris"]]), "N")
+        .appendField(new Blockly.FieldDropdown([["Alice","alice"], ["Bob","bob"], ["Charlie","charlie"]]), "N")
         .appendField("to")
-        .appendField(new Blockly.FieldDropdown([["Luke","luke"], ["Chinmaya","chinmaya"], ["Chris","chris"]]), "P1")
+        .appendField(new Blockly.FieldDropdown([["Alice","alice"], ["Bob","bob"], ["Charlie","charlie"]]), "P1")
         .appendField("'s contacts");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -32,9 +32,9 @@ Blockly.Blocks['show_suggestion'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("Show")
-        .appendField(new Blockly.FieldDropdown([["Luke","luke"], ["Chinmaya","chinmaya"], ["Chris","chris"]]), "P2")
+        .appendField(new Blockly.FieldDropdown([["Alice","alice"], ["Bob","bob"], ["Charlie","charlie"]]), "P2")
         .appendField(" to ")
-        .appendField(new Blockly.FieldDropdown([["Luke","luke"], ["Chinmaya","chinmaya"], ["Chris","chris"]]), "P1")
+        .appendField(new Blockly.FieldDropdown([["Alice","alice"], ["Bob","bob"], ["Charlie","charlie"]]), "P1")
         .appendField(" as a friend suggestion");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -75,6 +75,8 @@ Blockly.JavaScript['signup'] = function(block) {
     this.code += '\nbefore(' + previous_block_object.event_num + ','+ this.event_num +').'; // before(x,y).
   }
   if (last) {
+    var tmax = this.event_num + 3;
+    this.code += '\n#const tmax=' + tmax + '.';
     return 'document.getElementById("outputCode").innerHTML =\`'  + this.code + '\`;\ndocument.getElementById("submit").setAttribute(\"value\", \`'  + this.code + '\`);'
   }
   return '';
@@ -112,6 +114,8 @@ Blockly.JavaScript['save_contact'] = function(block) {
     this.code += '\nbefore(' + previous_block_object.event_num + ','+ this.event_num +').'; // before(x,y).
   }
   if (last) {
+    var tmax = this.event_num + 3;
+    this.code += '\n#const tmax=' + tmax + '.';
     return 'document.getElementById("outputCode").innerHTML =\`'  + this.code + '\`;\ndocument.getElementById("submit").setAttribute(\"value\", \`'  + this.code + '\`);'
   }
   return '';
@@ -149,6 +153,8 @@ Blockly.JavaScript['show_suggestion'] = function(block) {
     this.code += '\nbefore(' + previous_block_object.event_num + ','+ this.event_num +').'; // before(x,y).
   }
   if (last) {
+    var tmax = this.event_num + 3;
+    this.code += '\n#const tmax=' + tmax + '.';
     return 'document.getElementById("outputCode").innerHTML =\`'  + this.code + '\`;\ndocument.getElementById("submit").setAttribute(\"value\", \`'  + this.code + '\`);'
   }
   return '';

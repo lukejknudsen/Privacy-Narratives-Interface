@@ -1,7 +1,7 @@
 <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
   <category name="Blocks">
     <block type="signup">
-      <field name="NAME">luke</field>
+      <field name="NAME">alice</field>
     </block>
   </category>
 </xml>

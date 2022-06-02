@@ -21,17 +21,17 @@ def index():
     #    self.first_name = request.form.get("fname")
     #    # getting input with name = lname in HTML form 
     #    last_name = request.form.get("lname") 
-        template_file = open("template.lp", "r")
-        output = template_file.read()
-        template_file.close()
-        output += request.form.get("submit")
+        # template_file = open("template.lp", "r")
+        # output = template_file.read()
+        # template_file.close()
+        output = request.form.get("submit")
 
         output_file = open("output.lp", "w")
         output_file.write(output)
-        os.system("python3 -m clingo output.lp | aspout.txt")
-        import time
-        time.sleep(3)
         output_file.close()
+        os.system("python3 -m clingo orig_template.lp output.lp cpocl.lp > aspout.txt")
+        import time
+        # time.sleep(6)
 
         aspout_file = open("aspout.txt", "r")
         aspout = aspout_file.read()

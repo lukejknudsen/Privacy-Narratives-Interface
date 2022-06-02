@@ -13,12 +13,12 @@
               <block type="field_dropdown" id="2x*w9RI4RkAfofbphCq2">
                 <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
                 <field name="FIELDNAME">NAME</field>
-                <field name="USER0">Luke</field>
-                <field name="CPU0">luke</field>
-                <field name="USER1">Chimaya</field>
-                <field name="CPU1">chimaya</field>
-                <field name="USER2">Chris</field>
-                <field name="CPU2">chris</field>
+                <field name="USER0">Alice</field>
+                <field name="CPU0">alice</field>
+                <field name="USER1">Bob</field>
+                <field name="CPU1">bob</field>
+                <field name="USER2">Charlie</field>
+                <field name="CPU2">charlie</field>
                 <next>
                   <block type="field_static" id="sw,4$6*Zd7_[#z8XI.Td">
                     <field name="TEXT">up for the service</field>

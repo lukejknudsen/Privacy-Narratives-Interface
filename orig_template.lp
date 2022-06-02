@@ -1,4 +1,4 @@
-#const tmax=5.
+
 #const max_people=5.
 #const min_knows=1.
 #const max_knows=2.
