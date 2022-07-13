@@ -28,14 +28,12 @@ Blockly.Blocks['save_contact'] = {
   }
 };
 
-Blockly.Blocks['show_suggestion'] = {
+Blockly.Blocks['share_photos'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("Show")
         .appendField(new Blockly.FieldDropdown([["Alice","alice"], ["Bob","bob"], ["Charlie","charlie"]]), "P2")
-        .appendField(" to ")
-        .appendField(new Blockly.FieldDropdown([["Alice","alice"], ["Bob","bob"], ["Charlie","charlie"]]), "P1")
-        .appendField(" as a friend suggestion");
+        .appendField(" shares photos with ")
+        .appendField(new Blockly.FieldDropdown([["Alice","alice"], ["Bob","bob"], ["Charlie","charlie"]]), "P1");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
@@ -77,7 +75,9 @@ Blockly.JavaScript['signup'] = function(block) {
   if (last) {
     var tmax = this.event_num + 3;
     this.code += '\n#const tmax=' + tmax + '.';
-    return 'document.getElementById("outputCode").innerHTML =\`'  + this.code + '\`;\ndocument.getElementById("submit").setAttribute(\"value\", \`'  + this.code + '\`);'
+    var finalcode = 'var code = \`' + this.code + '\`;\nif (document.getElementById(\'knows\').checked) code+=\'\\n\\\#show knows/2.\'\ndocument.getElementById("outputCode").innerHTML = code;\ndocument.getElementById("submit").setAttribute(\"value\", code);';
+    console.log(finalcode);
+    return finalcode;
   }
   return '';
 };
@@ -116,12 +116,14 @@ Blockly.JavaScript['save_contact'] = function(block) {
   if (last) {
     var tmax = this.event_num + 3;
     this.code += '\n#const tmax=' + tmax + '.';
-    return 'document.getElementById("outputCode").innerHTML =\`'  + this.code + '\`;\ndocument.getElementById("submit").setAttribute(\"value\", \`'  + this.code + '\`);'
+    var finalcode = 'var code = \`' + this.code + '\`;\nif (document.getElementById(\'knows\').checked) code+=\'\\n\\\#show knows/2.\'\ndocument.getElementById("outputCode").innerHTML = code;\ndocument.getElementById("submit").setAttribute(\"value\", code);';
+    console.log(finalcode);
+    return finalcode;
   }
   return '';
 };
 
-Blockly.JavaScript['show_suggestion'] = function(block) {
+Blockly.JavaScript['share_photos'] = function(block) {
   var P1 = block.getFieldValue('P1');
   var P2 = block.getFieldValue('P2');
   // TODO: Assemble JavaScript into code variable.
@@ -140,13 +142,13 @@ Blockly.JavaScript['show_suggestion'] = function(block) {
   // `;
   if (first) { // if I am the first block
     this.event_num = 1;
-    var code = 'happens('+ this.event_num + ', action(show_suggestion, ' + P1 + ', '+ P2 + '), al(' + P1 + ')).';
+    var code = 'happens('+ this.event_num + ', action(share_photos, ' + P1 + ', '+ P2 + '), al(' + P1 + ')).';
     this.code = code;
   }
   else {
     previous_block_object = this.previousConnection.targetConnection.sourceBlock_;
     this.event_num = previous_block_object.event_num + 1;
-    var code = 'happens('+ this.event_num + ', action(show_suggestion, ' + P1 + ', '+ P2 + '), al(' + P1 + ')).';
+    var code = 'happens('+ this.event_num + ', action(share_photos, ' + P1 + ', '+ P2 + '), al(' + P1 + ')).';
     this.code = previous_block_object.code + '\n' + code;
     this.code += '\nedge(' + previous_block_object.event_num + ','+ this.event_num +').'; // edge(x,y).
     this.code += '\nafter(' + this.event_num + ','+ previous_block_object.event_num +').'; // after(y,x).
@@ -155,7 +157,9 @@ Blockly.JavaScript['show_suggestion'] = function(block) {
   if (last) {
     var tmax = this.event_num + 3;
     this.code += '\n#const tmax=' + tmax + '.';
-    return 'document.getElementById("outputCode").innerHTML =\`'  + this.code + '\`;\ndocument.getElementById("submit").setAttribute(\"value\", \`'  + this.code + '\`);'
+    var finalcode = 'var code = \`' + this.code + '\`;\nif (document.getElementById(\'knows\').checked) code+=\'\\n\\\#show knows/2.\'\ndocument.getElementById("outputCode").innerHTML = code;\ndocument.getElementById("submit").setAttribute(\"value\", code);';
+    console.log(finalcode);
+    return finalcode;
   }
   return '';
 };
